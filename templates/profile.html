@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Профиль
+{% endblock %}
+
+{% block content %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    Вы вошли в систему как <strong>{{ user.username }}</strong>.
+    <button type="button" class="btn-close"
+            data-bs-dismiss="alert" aria-label="Закрыть"></button>
+</div>
+
+<div class="user-info">
+
+    <h1>Профиль пользователя</h1>
+
+    <p>
+        Имя пользователя:
+        <strong>{{ user.username }}</strong>
+    </p>
+
+    <p>
+        Статус:
+        {% if user.is_superuser %}
+            <span class="badge text-bg-danger"
+                  data-bs-toggle="tooltip"
+                  data-bs-title="Полный доступ ко всем данным">
+                Администратор
+            </span>
+        {% else %}
+            <span class="badge text-bg-primary"
+                  data-bs-toggle="tooltip"
+                  data-bs-title="Доступ по правам своей группы">
+                Пользователь
+            </span>
+        {% endif %}
+    </p>
+
+    <p>
+        Группы:
+        {% for group in groups %}
+            <span class="badge text-bg-secondary">{{ group.name }}</span>
+        {% empty %}
+            <span class="text-muted">нет</span>
+        {% endfor %}
+    </p>
+
+    {% if user.profile %}
+        <p>
+            Учебная группа:
+            <strong>{{ user.profile.group_name }}</strong>
+        </p>
+    {% endif %}
+
+    {% if can_edit_courses %}
+        <p class="text-success mb-3">
+            Есть право редактировать курсы в административной панели.
+        </p>
+    {% endif %}
+
+    <a class="btn btn-primary"
+       href="/courses/">
+        Посмотреть курсы
+    </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+/* Фон всех страниц */
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Отступ основного содержимого от навигационной панели */
+.page-container {
+    margin-top: 30px;
+    flex: 1;
+}
+
+/* Блок с информацией о пользователе */
+.user-info {
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Карточка формы входа */
+.login-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Поля формы входа на всю ширину карточки */
+.login-card input[type="text"],
+.login-card input[type="password"] {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}
+
+/* Белая подложка таблицы курсов */
+.table-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 15px;
+}
+
+/* Заголовки страниц */
+h1 {
+    color: #2c3e50;
+}
+
+/* Подвал сайта */
+.site-footer {
+    text-align: center;
+    color: #8a8f98;
+    padding: 20px 0;
+    font-size: 14px;
+}
